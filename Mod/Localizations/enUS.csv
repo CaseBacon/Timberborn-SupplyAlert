@@ -1,0 +1,8 @@
+ID,Text,Comment
+CaseBacon.SupplyAlert.LowFoodWarning,Low Food: approximately {0} days remaining.,{0} is the estimated days of food remaining formatted to one decimal place
+CaseBacon.SupplyAlert.LowWaterWarning,Low Water: approximately {0} days remaining.,{0} is the estimated days of water remaining formatted to one decimal place
+CaseBacon.SupplyAlert.Settings.Header,Supply Alert,
+CaseBacon.SupplyAlert.Settings.FoodAlertsEnabled,Enable food alerts,
+CaseBacon.SupplyAlert.Settings.WaterAlertsEnabled,Enable water alerts,
+CaseBacon.SupplyAlert.Settings.FoodThresholdDays,Food threshold (days),
+CaseBacon.SupplyAlert.Settings.WaterThresholdDays,Water threshold (days),

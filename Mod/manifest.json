@@ -1,0 +1,17 @@
+{
+  "Name": "Supply Alert",
+  "Version": "1.0.0.0",
+  "Id": "CaseBacon.SupplyAlert",
+  "MinimumGameVersion": "1.1.2.0",
+  "Description": "Warns you when your colony's food or water is approaching depletion, with independently configurable thresholds for each.\n\nRequires Goods Statistics (by eMkaQQ) - Supply Alert reads its depletion estimates rather than recomputing its own, so Goods Statistics must be enabled too.\n\nSettings (gear icon next to the mod in the mod list):\n- Enable food alerts / Enable water alerts\n- Food threshold (days) / Water threshold (days), supports decimals\n\nYou get a single warning the moment an estimate crosses at or below its threshold, and the alert re-arms once the supply recovers safely above it - no repeated spam.\n\nSource code: https://github.com/CaseBacon/Timberborn-SupplyAlert\n\nAll credit for the underlying depletion analysis goes to eMkaQQ's Goods Statistics mod (https://github.com/eMkaQQ/timberborn-modding); this mod only adds alerting on top of it.",
+  "RequiredMods": [
+    {
+      "Id": "eMka.GoodsStatistics",
+      "MinimumVersion": "1.1.2.0"
+    },
+    {
+      "Id": "eMka.ModSettings",
+      "MinimumVersion": "1.0.6.0"
+    }
+  ]
+}

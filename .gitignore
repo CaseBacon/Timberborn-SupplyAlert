@@ -1,0 +1,24 @@
+## Visual Studio / .NET ##
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.sln.docstates
+
+## Rider / JetBrains ##
+.idea/
+*.DotSettings.user
+
+## VS Code ##
+.vscode/
+
+## Build output we don't want to track ##
+Mod/Scripts/*.dll
+
+## Third-party mod DLLs (Goods Statistics, Mod Settings) - never redistributed, see lib/README.md ##
+lib/**/*.dll
+
+## OS junk ##
+.DS_Store
+Thumbs.db

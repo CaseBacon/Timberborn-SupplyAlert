@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>SupplyAlert</AssemblyName>
+    <RootNamespace>SupplyAlert</RootNamespace>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <!-- Timberborn ships its own copies of these assemblies at runtime; never copy our references. -->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <!--
+    None of the referenced game/mod assemblies are redistributed with this repository.
+    Point these at your local installs (Steam/mod.io), or copy the DLLs into lib/,
+    see lib/README.md and README.md#building for details. All are overridable via
+    environment variables so no machine-specific path is hard-coded here.
+  -->
+  <PropertyGroup>
+    <TimberbornInstallDir Condition="'$(TIMBERBORN_INSTALL_DIR)' != ''">$(TIMBERBORN_INSTALL_DIR)</TimberbornInstallDir>
+    <TimberbornInstallDir Condition="'$(TimberbornInstallDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Timberborn</TimberbornInstallDir>
+    <TimberbornManagedDir>$(TimberbornInstallDir)\Timberborn_Data\Managed</TimberbornManagedDir>
+
+    <GoodStatisticsLibDir Condition="'$(GOODSTATISTICS_LIB_DIR)' != ''">$(GOODSTATISTICS_LIB_DIR)</GoodStatisticsLibDir>
+    <GoodStatisticsLibDir Condition="'$(GoodStatisticsLibDir)' == ''">$(MSBuildThisFileDirectory)..\..\lib\GoodStatistics</GoodStatisticsLibDir>
+
+    <ModSettingsLibDir Condition="'$(MODSETTINGS_LIB_DIR)' != ''">$(MODSETTINGS_LIB_DIR)</ModSettingsLibDir>
+    <ModSettingsLibDir Condition="'$(ModSettingsLibDir)' == ''">$(MSBuildThisFileDirectory)..\..\lib\ModSettings</ModSettingsLibDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Timberborn -->
+    <Reference Include="Timberborn.Goods">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.Goods.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.ResourceCountingSystem">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.ResourceCountingSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.SingletonSystem">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.SingletonSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.Localization">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.Localization.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.QuickNotificationSystem">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.QuickNotificationSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.Modding">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.Modding.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.SettingsSystem">
+      <HintPath>$(TimberbornManagedDir)\Timberborn.SettingsSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Bindito.Core">
+      <HintPath>$(TimberbornManagedDir)\Bindito.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(TimberbornManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Mod Settings (eMka.ModSettings) - required dependency, not redistributed -->
+    <Reference Include="ModSettings.Core">
+      <HintPath>$(ModSettingsLibDir)\ModSettings.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Goods Statistics (eMka.GoodsStatistics) - required dependency, not redistributed -->
+    <Reference Include="GoodStatistics.Analytics">
+      <HintPath>$(GoodStatisticsLibDir)\GoodStatistics.Analytics.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="GoodStatistics.Sampling">
+      <HintPath>$(GoodStatisticsLibDir)\GoodStatistics.Sampling.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
